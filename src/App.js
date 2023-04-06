@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/About";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
+import Menu from "./components/Menu";
+
 
 function App() {
   return (
@@ -10,7 +12,9 @@ function App() {
 
     <BrowserRouter>
 
-      <Routes>
+      <Menu />
+
+      <Routes>{/* section dedicated to displaying the URL user is in */}
         <Route exact path="about" element={<About />}></Route>{/*in this path display this element which in this is a component called About */}
 
         <Route exact path="clients" element={<Clients />}></Route>
