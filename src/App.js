@@ -1,3 +1,9 @@
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import { Box } from '@mui/material';
+import { Container } from '@mui/system';
 import * as React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/About";
@@ -10,22 +16,24 @@ function App() {
   return (
     <div className="App">
 
-    <BrowserRouter>
+    <Container maxWidth="sm" sx={{ marginTop:"50px"}}>
 
-      <Menu />
+      <BrowserRouter>
+        <Box sx={{ mb:3}}>
+          <Menu />  
+        </Box>
 
-      <Routes>{/* section dedicated to displaying the URL user is in */}
-        <Route exact path="about" element={<About />}></Route>{/*in this path display this element which in this is a component called About */}
+        <Routes>{/* section dedicated to displaying the URL user is in */}
+          <Route exact path="about" element={<About />}></Route>{/*in this path display this element which in this is a component called About */}
 
-        <Route exact path="clients" element={<Clients />}></Route>
+          <Route exact path="clients" element={<Clients />}></Route>
 
-        <Route exact path="contact" element={<Contact />}></Route>
+          <Route exact path="contact" element={<Contact />}></Route>
 
-      </Routes>
+        </Routes>
+      </BrowserRouter>
 
-
-    
-    </BrowserRouter>
+    </Container>
 
     </div>
   );
