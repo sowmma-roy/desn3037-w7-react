@@ -13,7 +13,7 @@ import Menu from "./components/Menu";
 
 import store from './redux/store.js';
 import { Provider } from 'react-redux'
-
+import Counter from "./components/Counter";
 
 
 function App() {
@@ -34,6 +34,8 @@ function App() {
               <Route exact path="clients" element={<Clients />}></Route>
 
               <Route exact path="contact" element={<Contact />}></Route>
+
+              <Route exact path='counter' element={<Counter />}></Route>
 
             </Routes>
           </BrowserRouter>
