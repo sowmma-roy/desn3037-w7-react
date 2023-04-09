@@ -35,7 +35,7 @@ export default function BasicList() {
           <ListItem disablePadding>
             <ListItemButton>
               <ListItemText primary="Item #0" />
-                <Button variant="outlined" color='error' startIcon={<DeleteIcon sx={{m:0}}/>} onClick={(e) => remove()}></Button>
+                <Button variant="outlined" color='error' startIcon={<DeleteIcon sx={{marginLeft:"12px"}}/>} onClick={(e) => remove()}></Button>
             </ListItemButton>
           </ListItem>
 
