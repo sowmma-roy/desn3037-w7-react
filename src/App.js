@@ -10,6 +10,8 @@ import About from "./components/About";
 import Clients from "./components/Clients";
 import Contact from "./components/Contact";
 import Menu from "./components/Menu";
+import Sync from "./components/Sync";
+
 
 import store from './redux/store.js';
 import { Provider } from 'react-redux'
@@ -41,6 +43,8 @@ function App() {
 
             </Routes>
           </BrowserRouter>
+
+          <Sync />
 
         </Container>
       </Provider>
