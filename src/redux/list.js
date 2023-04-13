@@ -1,11 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+let initialState = {
     field: "Add a note", //this will hold the users input, currently showing a default value
     items: [ //user inputs will populate to this array
         "Lazy dog",
         "Quick brown fox"
     ]
+}
+
+//retrieve up what ever data we have stored in localStorage under the key - payload
+const json = window.localStorage.getItem("payload");
+
+//control flow to verify that retrieved value (exists and is not an empty string)
+if (json !== null && json !== "") {
+  const payload = JSON.parse(json);
+  initialState.field = payload.list.field;//initialState gets updated if the condition is true
+  initialState.items = payload.list.items;
 }
 
 export const listSlice = createSlice({
@@ -29,6 +39,6 @@ export const listSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { define, add, remove } = listSlice.actions //exporting these actions to be used by the application
+export const { define, add, clean, remove } = listSlice.actions //exporting these actions to be used by the application
 
 export default listSlice.reducer //packaging it altogether

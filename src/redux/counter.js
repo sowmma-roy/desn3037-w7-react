@@ -1,8 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+let initialState = { //const to let to make this modifiable
     value: 0,
 }
+
+//retrieve up what ever data we have stored in localStorage under the key - payload
+const json = window.localStorage.getItem("payload");
+
+//control flow to verify that retrieved value (exists and is not an empty string)
+if (json !== null && json !== "") {
+  const payload = JSON.parse(json);
+  initialState.value = payload.counter.value;//initialState gets updated if the condition is true
+}
+
 
 export const counterSlice = createSlice({
   name: 'counter', //name of the slice

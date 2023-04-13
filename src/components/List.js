@@ -11,7 +11,7 @@ import { Button, TextField } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 import { useSelector, useDispatch } from 'react-redux'
-import { define as reducerDefine, add as reducerAdd, remove as reducerRemove } from '../redux/list'
+import { define as reducerDefine, add as reducerAdd, remove as reducerRemove } from '../redux/list';
 
 
 
@@ -20,6 +20,7 @@ export default function BasicList() {
     const field = useSelector(state => state.list.field)
     const items = useSelector(state => state.list.items)
     const dispatch = useDispatch()//asks redux to make an upadate instead of pulling data
+
 
     function add () {
 
@@ -39,10 +40,11 @@ export default function BasicList() {
         dispatch(reducerDefine(value))//take the value, and push it into action at reducer list. where action.payload works on it
     }
 
+
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
 
-      <TextField label="" variant="outlined" value={field} sx={{ width: '100%', mb: 2}} onChange={(e) => define(e.target.value)} />
+      <TextField id="textField" label="" variant="outlined" value={field} sx={{ width: '100%', mb: 2}} onChange={(e) => define(e.target.value)} />
       <Button variant="contained" sx={{ width: '100%', mb:2}} onClick={(e) => add()}>Add</Button>
 
       {/* Button variant="contained" sx={{ width: '100%', mb:2}} onClick={(e) => dispatch(add())}>Add</Button> */}
