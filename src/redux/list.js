@@ -1,10 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 let initialState = {
-    field: "Add a note", //this will hold the users input, currently showing a default value
+    field: "", //this will hold the users input, currently showing a default value
     items: [ //user inputs will populate to this array
-        "Lazy dog",
-        "Quick brown fox"
     ]
 }
 
