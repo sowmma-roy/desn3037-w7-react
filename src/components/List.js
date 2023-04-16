@@ -15,6 +15,11 @@ import { define as reducerDefine, add as reducerAdd, remove as reducerRemove } f
 
 
 
+export function validateEmail(email) {
+  var re = /\S+@\S+\.\S+/;
+  return re.test(email);
+}
+
 export default function BasicList() {
 
     const field = useSelector(state => state.list.field)
@@ -24,8 +29,16 @@ export default function BasicList() {
 
     function add () {
 
+      if (validateEmail(field) === true ) {
         {/* 1. get the data from TextField 2.pass it to itemsreducer 3.clear the field*/}
         dispatch(reducerAdd(field));
+        dispatch(reducerDefine(""));//it removes the text from the text field
+      }
+      else {
+        alert("Alert! Enter the correct email address!")
+        
+      }
+
     }
 
     function remove (index) {
@@ -44,7 +57,7 @@ export default function BasicList() {
   return (
     <Box sx={{ width: '100%', bgcolor: 'background.paper' }}>
 
-      <TextField id="textField" label="" variant="outlined" value={field} sx={{ width: '100%', mb: 2}} onChange={(e) => define(e.target.value)} />
+      <TextField id="textField" label="Email" variant="outlined" value={field} sx={{ width: '100%', mb: 2}} onChange={(e) => define(e.target.value)} />
       <Button variant="contained" sx={{ width: '100%', mb:2}} onClick={(e) => add()}>Add</Button>
 
       {/* Button variant="contained" sx={{ width: '100%', mb:2}} onClick={(e) => dispatch(add())}>Add</Button> */}
