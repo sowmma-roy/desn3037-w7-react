@@ -31,6 +31,8 @@ function App() {
             </Box>
 
             <Routes>{/* section dedicated to displaying the URL user is in */}
+              <Route exact path="" element={ <></>}></Route>{/* implement empty elemnt that looks like this*/}
+
               <Route exact path="about" element={<About />}></Route>{/*in this path display this element which in this is a component called About */}
 
               <Route exact path="clients" element={<Clients />}></Route>

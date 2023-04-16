@@ -11,6 +11,7 @@ export default function Menu () {
 
         <div>
             <Tabs value={pathname}>
+                <Tab component={Link} to="/" value="/" label="" sx={{display:"none"}} />{/* having a homepage without any words is also necessary */}
                 <Tab component={Link} to="/about" value="/about" label="About" />
                 <Tab component={Link} to="/clients" value="/clients" label="Clients" />
                 <Tab component={Link} to="/contact" value="/contact" label="Contact" />
